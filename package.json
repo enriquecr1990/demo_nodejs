@@ -1,0 +1,48 @@
+{
+  "name": "app_web",
+  "version": "1.0.0",
+  "description": "es un demo para intentar subir la app a azure",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enriquecr1990/demo_nodejs.git"
+  },
+  "keywords": [
+    "maestria",
+    "unir",
+    "materia",
+    "ingenieria",
+    "y",
+    "desarrollo",
+    "web",
+    "implmentacion",
+    "de",
+    "una",
+    "web",
+    "app",
+    "con",
+    "node",
+    "js",
+    "mysql",
+    "y",
+    "mongo",
+    "db"
+  ],
+  "author": "Enrique Corona Ricaño",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enriquecr1990/demo_nodejs/issues"
+  },
+  "homepage": "https://github.com/enriquecr1990/demo_nodejs#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mysql": "^2.18.1",
+    "swig": "^1.4.2"
+  }
+}
