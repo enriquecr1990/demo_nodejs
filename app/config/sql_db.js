@@ -13,12 +13,12 @@ switch (server.hostname()){
             database : 'sitio_php'
         };
         break;
-    //server azure por el despliegue de la free web app alojada en 'https://enrique-nodesql.azurewebsites.net/'
-    case 'RD0003FFDCBE68':
+    //server azure por el despliegue de la free web app alojada en 'https://enrique-nodejs.azurewebsites.net/'
+    case 'RD0003FFDCC3F3':
         config = {
             host : 'localhost',
             user : 'azure',
-            port : '54352',
+            port : '51445',
             password : '6#vWHD_$',
             database : 'sitio_php'
         };
