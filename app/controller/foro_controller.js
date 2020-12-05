@@ -1,7 +1,10 @@
 //cargamos la libreria de swig para procesar vistas de html y pasar variables hacia la vista
 var swig = require('swig');
 //cargamos las constantes que vamos a utilizar en el controlador
-var Constantes = require('../config/constantes');
+//var Constantes = require('../config/constantes');
+const RUTA_VISTAS = '../app_web/app/views/';
+const ERROR_MSG = 'Hubo un error en el sistema, favor de intentar más tarde';
+const ERROR_BD = 'Hubo un error al conectarse a la BD, favor de intentar más tarde';
 //cargamos el modelo de foro para procesar la informacion
 var Foro_model = require('../model/foro_model');
 //cargamos el helper de validacion de datos
@@ -11,19 +14,19 @@ var Foro_controller = {
 
     index : function(req,res){
         try{
-            var html_head = swig.renderFile(Constantes.RUTA_VISTAS+'default/header.html');
-            var menu = swig.renderFile(Constantes.RUTA_VISTAS+'default/menu_mongo.html');
-            var foro = swig.renderFile(Constantes.RUTA_VISTAS+'foro/foro.html');
-            var html_footer = swig.renderFile(Constantes.RUTA_VISTAS+'default/footer.html',{
+            var html_head = swig.renderFile(RUTA_VISTAS+'default/header.html');
+            var menu = swig.renderFile(RUTA_VISTAS+'default/menu_mongo.html');
+            var foro = swig.renderFile(RUTA_VISTAS+'foro/foro.html');
+            var html_footer = swig.renderFile(RUTA_VISTAS+'default/footer.html',{
                 entregable : 'foro'
             });
             res.send(html_head + menu + foro + html_footer);
         }catch (error){
             res.status(500);
             console.log('***** error al buscar mensajes del foro ' + err);
-            var error_msg = swig.renderFile(Constantes.RUTA_VISTAS + 'default/mensajes.html',{
+            var error_msg = swig.renderFile(RUTA_VISTAS + 'default/mensajes.html',{
                 tipo_mensaje : 'danger',
-                mensajes : [Constantes.ERROR_MSG]
+                mensajes : [ERROR_MSG]
             });
             res.setHeader('Content-Type','text/html');
             res.send(error_msg);
@@ -43,16 +46,16 @@ var Foro_controller = {
             Foro_model.listar(function(error,result) {
                 if(error){
                     console.log('***** error al buscar mensajes del foro');
-                    var error_msg = swig.renderFile(Constantes.RUTA_VISTAS + 'default/mensajes.html',{
+                    var error_msg = swig.renderFile(RUTA_VISTAS + 'default/mensajes.html',{
                         tipo_mensaje : 'danger',
-                        mensajes : [Constantes.ERROR_MSG]
+                        mensajes : [ERROR_MSG]
                     });
                     res.setHeader('Content-Type','text/html');
                     res.send(error_msg);
                 }else{
                     //probando primero y ver que devuelve
                     console.log('***** se obtuvo los mensajes del foro con exito');
-                    var mensajes = swig.renderFile(Constantes.RUTA_VISTAS+'foro/mensajes.html',{
+                    var mensajes = swig.renderFile(RUTA_VISTAS+'foro/mensajes.html',{
                         mensajes : result
                     });
                     res.setHeader('Content-Type','text/html');
@@ -62,9 +65,9 @@ var Foro_controller = {
         }catch (err){
             res.status(500);
             console.log('***** error al buscar mensajes del foro ' + err);
-            var error_msg = swig.renderFile(Constantes.RUTA_VISTAS + 'default/mensajes.html',{
+            var error_msg = swig.renderFile(RUTA_VISTAS + 'default/mensajes.html',{
                 tipo_mensaje : 'danger',
-                mensajes : [Constantes.ERROR_MSG]
+                mensajes : [ERROR_MSG]
             });
             res.setHeader('Content-Type','text/html');
             res.send(error_msg);
@@ -94,7 +97,7 @@ var Foro_controller = {
                     if(err){
                         res.json({
                             status : false,
-                            msg : [Constantes.ERROR_BD,'No pude guardar el mensaje en el foro']
+                            msg : [ERROR_BD,'No pude guardar el mensaje en el foro']
                         });
                     }else{
                         res.json({
@@ -115,7 +118,7 @@ var Foro_controller = {
             console.log(error);
             res.json({
                 status : false,
-                msg : [Constantes.ERROR_MSG]
+                msg : [ERROR_MSG]
             });
         }
     },
@@ -144,7 +147,7 @@ var Foro_controller = {
                     if(err){
                         res.json({
                             status : false,
-                            msg : [Constantes.ERROR_BD,'No pude actualizar el mensaje en el foro']
+                            msg : [ERROR_BD,'No pude actualizar el mensaje en el foro']
                         });
                     }else{
                         res.json({
@@ -164,7 +167,7 @@ var Foro_controller = {
             console.log('***** error al actualizar el mensaje en el foro ' + error);
             res.json({
                 status : false,
-                msg : [Constantes.ERROR_MSG]
+                msg : [ERROR_MSG]
             });
         }
     },
@@ -186,7 +189,7 @@ var Foro_controller = {
                 if(error){
                     res.json({
                         status : false,
-                        msg : [Constantes.ERROR_MSG,'No pude eliminar el mensaje ' + err]
+                        msg : [ERROR_MSG,'No pude eliminar el mensaje ' + err]
                     });
                 }else{
                     res.json({
@@ -200,7 +203,7 @@ var Foro_controller = {
             console.log('***** Error al eliminar el mensaje' + error);
             res.json({
                 status : false,
-                msg : [Constantes.ERROR_MSG]
+                msg : [ERROR_MSG]
             });
         }
     },
