@@ -1,9 +1,9 @@
 //logica para determinar la configuracion del servidor del backend
 var hostname = location.hostname;
 switch (hostname) {
-    case 'enrique-nodesql.azurewebsites.net':
+    case 'enriquecr-nodejs.azurewebsites.net':
         var Backend = {
-            url : 'https://enrique-nodesql.azurewebsites.net/'
+            url : 'https://enriquecr-nodejs.azurewebsites.net/'
         };
         break;
     default:
