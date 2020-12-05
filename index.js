@@ -1,6 +1,6 @@
 var express = require('express'); //se agrega el express para la app web
 var bodyParser = require('body-parser');//se agrega el body parser para poder recibir los datos de un formulario por medio de un post
-
+const PORT = process.env.PORT || 8080;
 //inicializacion de la app por medio de express
 var app = express();
 //se codifica el post para que lo acepte como una variante de los datos json application/x-www-form-urlencoded
@@ -58,6 +58,6 @@ app.get('/mongo_test',function(req,res){
 });
 
 //se agrega el listen para arrancar el servidor en el puerto 8080
-app.listen(8080,function(){
-    console.log('***** Se inicio el servidor correctamente'); 
+app.listen(PORT,function(){
+    console.log('***** Se inicio el servidor correctamente PORT: ' + PORT);
 });

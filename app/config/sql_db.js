@@ -14,11 +14,11 @@ switch (server.hostname()){
         };
         break;
     //server azure por el despliegue de la free web app alojada en 'https://enrique-nodejs.azurewebsites.net/'
-    case 'RD0003FFDCC3F3':
+    case 'RD0003FFDCC7CC':
         config = {
             host : '127.0.0.1',
             user : 'azure',
-            port : '51445',
+            port : '52758',
             password : '6#vWHD_$',
             database : 'sitio_php'
         };
