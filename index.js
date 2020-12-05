@@ -59,5 +59,7 @@ app.get('/mongo_test',function(req,res){
 
 //se agrega el listen para arrancar el servidor en el puerto 8080
 app.listen(PORT,function(){
+    var constantes = require('./app/config/constantes');
+    console.log('***** dirname = '+constantes.DIR_APP);
     console.log('***** Se inicio el servidor correctamente PORT: ' + PORT);
 });

@@ -1,10 +1,7 @@
 //cargamos la libreria de swig para procesar vistas de html y pasar variables hacia la vista
 var swig = require('swig');
 //cargamos las constantes que vamos a utilizar en el controlador
-//var Constantes = require('../config/constantes');
-const RUTA_VISTAS = '../app_web/app/views/';
-const ERROR_MSG = 'Hubo un error en el sistema, favor de intentar más tarde';
-const ERROR_BD = 'Hubo un error al conectarse a la BD, favor de intentar más tarde';
+var Constantes = require('../config/constantes');
 //cargamos el modelo de contacto para procesar la informacion
 var Contacto_model = require('../model/contacto_model');
 //cargamos el helper de validacion de datos
@@ -20,17 +17,17 @@ var Contacto_controller = {
      */
     busqueda : function(req,res){
         try{
-            var html_head = swig.renderFile(RUTA_VISTAS+'default/header.html');
-            var menu = swig.renderFile(RUTA_VISTAS+'default/menu_sql.html');
-            var form_busqueda = swig.renderFile(RUTA_VISTAS+'contacto/busqueda.html');
-            var html_footer = swig.renderFile(RUTA_VISTAS+'default/footer.html',{
+            var html_head = swig.renderFile(Constantes.RUTA_VISTAS+'default/header.html');
+            var menu = swig.renderFile(Constantes.RUTA_VISTAS+'default/menu_sql.html');
+            var form_busqueda = swig.renderFile(Constantes.RUTA_VISTAS+'contacto/busqueda.html');
+            var html_footer = swig.renderFile(Constantes.RUTA_VISTAS+'default/footer.html',{
                 entregable : 'contacto'
             });
             res.send(html_head + menu + form_busqueda + html_footer);
         }catch (e){
-            var mensajes = swig.renderFile(RUTA_VISTAS + 'default/mensajes.html',{
+            var mensajes = swig.renderFile(Constantes.RUTA_VISTAS + 'default/mensajes.html',{
                 tipo_mensaje : 'danger',
-                mensajes : [ERROR_MSG]
+                mensajes : [Constantes.ERROR_MSG]
             });
             res.send(mensajes);
         }
@@ -48,14 +45,14 @@ var Contacto_controller = {
             Contacto_model.listar(function(error,result){
                 if(error){
                     console.log('***** error al obtener la lista de contacto');
-                    var mensajes = swig.renderFile(RUTA_VISTAS + 'default/mensajes.html',{
+                    var mensajes = swig.renderFile(Constantes.RUTA_VISTAS + 'default/mensajes.html',{
                         tipo_mensaje : 'danger',
-                        mensajes : [ERROR_BD]
+                        mensajes : [Constantes.ERROR_BD]
                     });
                     res.send(mensajes);
                 }else{
                     console.log('***** se obtuvo la lista de contactos con exito');
-                    var tablero = swig.renderFile(RUTA_VISTAS+'contacto/tablero.html', {
+                    var tablero = swig.renderFile(Constantes.RUTA_VISTAS+'contacto/tablero.html', {
                         contactos : result
                     });
                     res.send(tablero);
@@ -63,9 +60,9 @@ var Contacto_controller = {
             },extra_params);
         }catch (error){
             console.log(error);
-            var mensajes = swig.renderFile(RUTA_VISTAS + 'default/mensajes.html',{
+            var mensajes = swig.renderFile(Constantes.RUTA_VISTAS + 'default/mensajes.html',{
                 tipo_mensaje : 'danger',
-                mensajes : [ERROR_MSG]
+                mensajes : [Constantes.ERROR_MSG]
             });
             res.send(mensajes);
         }
@@ -78,7 +75,7 @@ var Contacto_controller = {
      * @return html
      */
     modificar_agregar : function(req,res){
-        var formulario = swig.renderFile(RUTA_VISTAS+'contacto/formulario.html');
+        var formulario = swig.renderFile(Constantes.RUTA_VISTAS+'contacto/formulario.html');
         res.send(formulario);
     },
 
@@ -96,7 +93,7 @@ var Contacto_controller = {
                     console.log('***** error al obtener los datos del contacto');
                     res.json({
                         status : false,
-                        msg : [ERROR_BD]
+                        msg : [Constantes.ERROR_BD]
                     });
                 }else{
                     console.log('***** se obtuvo los datos del contacto');
@@ -113,7 +110,7 @@ var Contacto_controller = {
             console.log(error);
             res.json({
                 status : false,
-                msg : [ERROR_MSG]
+                msg : [Constantes.ERROR_MSG]
             });
         }
     },
@@ -147,7 +144,7 @@ var Contacto_controller = {
                         console.log('***** error al obtener los datos del contacto');
                         res.json({
                             status : false,
-                            msg : [ERROR_BD]
+                            msg : [Constantes.ERROR_BD]
                         });
                     }else{
                         console.log('***** Se guardo el contacto con exito');
@@ -168,7 +165,7 @@ var Contacto_controller = {
             res.json({
                 status : false,
                 msg : [
-                    ERROR_MSG
+                    Constantes.ERROR_MSG
                 ]
             });
         }
@@ -201,7 +198,7 @@ var Contacto_controller = {
             res.json({
                 status : false,
                 msg : [
-                    ERROR_MSG
+                    Constantes.ERROR_MSG
                 ]
             });
         }
