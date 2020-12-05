@@ -6,7 +6,7 @@ switch (server.hostname()){
     //server local en mi equipo personal llamado HP-K1V4
     case 'HP-K1V4':
         config = {
-            host : 'localhost',
+            host : '127.0.0.1',
             user : 'root',
             port : '3306',
             password : '',
@@ -26,7 +26,7 @@ switch (server.hostname()){
     //cargamos la configuracion por default
     default:
         config = {
-            host : 'localhost',
+            host : '127.0.0.1',
             user : 'root',
             port : '3306',
             password : '',
@@ -34,7 +34,6 @@ switch (server.hostname()){
         };
         break;
 }
-
 //creamos la conexion de la bd conforme al config llenado previamente en el switch
 var conexionDB = mysql.createConnection(config);
 

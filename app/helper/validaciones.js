@@ -10,8 +10,8 @@ var Valida = {
         if(!this.valida_campo(form.materno,'apellido materno')){ form_valido = false}
         if(!this.valida_campo(form.id_genero,'genero')){ form_valido = false}
         if(!this.valida_campo(form.id_tipo_telefono,'tipo de telefóno')){ form_valido = false}
-        if(!this.valida_campo(form.email,'correo electrónico')){ form_valido = false}
-        if(!this.valida_campo(form.facebook,'link de face')){ form_valido = false}
+        //if(!this.valida_campo(form.email,'correo electrónico')){ form_valido = false}
+        //if(!this.valida_campo(form.facebook,'link de face')){ form_valido = false}
         if(!this.valida_campo(form.nacimiento,'fecha de nacimiento')
             || !this.validar_fecha(form.nacimiento)){
             form_valido = false

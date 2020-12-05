@@ -128,7 +128,6 @@ var Contacto_controller = {
             if(Validacion.form_contacto(req.body)){
                 //creamos contacto para transformalo y enviarlo al modelo para su persistencia
                 var contacto = {
-                    id : req.body.id_contacto,
                     nombre : req.body.nombre,
                     paterno : req.body.paterno,
                     materno : req.body.materno,
@@ -141,7 +140,8 @@ var Contacto_controller = {
                 };
                 Contacto_model.guardar(function(error,result){
                     if(error){
-                        console.log('***** error al obtener los datos del contacto');
+                        console.log('***** error al tratar de guardar el contacto');
+                        console.log(error);
                         res.json({
                             status : false,
                             msg : [Constantes.ERROR_BD]
@@ -153,7 +153,7 @@ var Contacto_controller = {
                             msg : ['Se guardo el contacto con éxito']
                         });
                     }
-                },contacto);
+                },contacto,req.body.id_contacto);
             }else{
                 res.json({
                     status : false,

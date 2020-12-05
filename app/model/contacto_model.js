@@ -41,14 +41,27 @@ var Contacto_model = {
      * 1. call_controller la funcion que reciba para procesar los datos del controlodaor
      * 2. id_contacto: es el identificador de la BD para procesarlo en la query
      */
-    guardar : function(call_controller,data_contacto){
-        console.log('***** Contacto_model -> guardar');
-        var query = "INSERT INTO contacto set ?";
-        if(data_contacto.id != '' && data_contacto.id != 0){
-            query = "UPDATE contacto SET ? WHERE id="+data_contacto.id;
+    guardar : function(call_controller,data_contacto,id){
+        if(id != '' && id != 0){
+            console.log('***** Contacto_model -> guardar actualizar');
+            var query = "UPDATE contacto SET ? WHERE id="+id;
+            console.log('***** consulta: ' + query);
+            mysql.query(query,data_contacto,call_controller);
+        }else{
+            console.log('***** Contacto_model -> guardar nuevo');
+            var query = "INSERT INTO contacto (nombre,paterno,materno,id_genero,nacimiento,id_catalogo_tipo_telefono,numero_telefono,correo,facebook) values ";
+            query += "('"+data_contacto.nombre+"' , '"
+                +data_contacto.paterno+"' ,'"
+                +data_contacto.materno+"' ,'"
+                +data_contacto.id_genero+"' ,'"
+                +data_contacto.nacimiento+"' ,'"
+                +data_contacto.id_catalogo_tipo_telefono+"' ,'"
+                +data_contacto.numero_telefono+"' ,'"
+                +data_contacto.correo+"' ,'"
+                +data_contacto.facebook+"')";
+            console.log('***** consulta: ' + query);
+            mysql.query(query,call_controller);
         }
-        console.log('***** consulta: ' + query);
-        mysql.query(query,data_contacto,call_controller);
     },
 
     /**
