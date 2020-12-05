@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-header bg-success">
+        <label class="card-title" style="font-weight: bold; color: white">Foro de mensajes</label>
+    </div>
+    <div class="card-body">
+
+        <div class="row" id="div_nuevo_comentario">
+            <div class="form-group col-lg-12 text-right">
+                <button type="button" class="btn btn-outline-success btn-sm" id="btn_comentario_nuevo">Nuevo comentario</button>
+            </div>
+        </div>
+
+        <div class="card" id="div_form_comentario" style="display: none">
+            <div class="card-body">
+                <label class="card-title">Registra tu comentario en el foro</label>
+                <form id="form_comentario_foro">
+                    <div class="row">
+                        <div class="form-group col-lg-6 col-sm-12">
+                            <label >Nombre: </label>
+                            <input type="text" class="form-control" id="remitente" name="remitente" placeholder="Escribe tu nombre para el comentario">
+                        </div>
+                        <div class="form-group col-lg-6 col-sm-12">
+                            <label >Asunto: </label>
+                            <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Escribe tu asunto del foro">
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label>Mensaje: </label>
+                            <textarea class="form-control" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje para el foro"></textarea>
+                        </div>
+                        <div class="form-group col-lg-12 text-right">
+                            <button type="reset" class="btn btn-outline-danger btn-sm" id="btn_reiniciar_form" style="display: none;">Reestablecer form</button>
+                            <button type="button" class="btn btn-outline-danger btn-sm" id="btn_cancelar_comentario">Cancelar</button>
+                            <button type="button" class="btn btn-outline-success btn-sm" id="btn_guardar_comentario">Guardar</button>
+                            <button type="button" class="btn btn-outline-success btn-sm" id="btn_actualizar_comentario">Actualizar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-lg-12 text-right">
+                <div id="seccion_mensajes_foro"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

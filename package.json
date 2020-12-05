@@ -1,7 +1,7 @@
 {
   "name": "app_web",
   "version": "1.0.0",
-  "description": "es un demo para intentar subir la app a azure",
+  "description": "Implementación de una solucion basada en una aplicación web",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

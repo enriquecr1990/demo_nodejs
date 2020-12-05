@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="author" content="Enrique Corona Ricaño">
+    <meta name="description" content="Trabajo de implementación de un solución basada en un aplicación web">
+    <meta name="keywords" content="Enrique Corona Ricaño, Ingenieria y desarrolo en la web">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/framework/bootstrap45/css/bootstrap.min.css">
+
+    <title>App Web</title>
+
+    <link rel="icon" href="assets/img/logo.png">
+
+</head>
+<body>
+
+<!-- contenedor principal -->
+<div class="container">
+
+    <!-- html del menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2 mb-3">
+        <img src="assets/img/logo.png" width="50" height="50" class="d-inline-block align-top" alt="" loading="lazy">
+        <a class="navbar-brand ml-1" href="#">Mi app Web</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuTiendaEcommerse"
+                aria-controls="menuTiendaEcommerse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <!-- aqui ira el contenido dinamico a renderizar -->
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="form-group col-lg-2">
+                            <strong>Materia:</strong>
+                        </div>
+                        <div class="form-group col-lg-10">
+                            Ingeniería y Desarrollo en la Web
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <strong>Instructor:</strong>
+                        </div>
+                        <div class="form-group col-lg-10">
+                            Octavio Aguirre Lozano
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <strong>Actividad:</strong>
+                        </div>
+                        <div class="form-group col-lg-10">
+                            Implementación de una solución basada en un aplicación web
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <strong>Alumno:</strong>
+                        </div>
+                        <div class="form-group col-lg-10">
+                            Enrique Corona Ricaño
+                        </div>
+                        <hr>
+                        <div class="form-group col-lg-2">
+                            <strong>Descripción de la App:</strong>
+                        </div>
+                        <div class="form-group col-lg-10">
+                            La app web tiene como funcionalidad registrar contactos con su número de telefónico, nombre completo,
+                            fecha de nacimiento, tipo de telefono, un correo electrónico y su facebook (CRUD) y que tiene como motor de BD MySQL y la parte de un miniforo
+                            donde unicamente se registra el nombre, asunto y mensaje del foro (CRUD) y que tiene como
+                            motor de BD Mongo DB.
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <strong>Integraciones: </strong>
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <a href="/contacto" class="btn btn-outline-success btn-sm" target="_blank">Contactos (MySQL)</a>
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <a href="/foro" class="btn btn-outline-info btn-sm" target="_blank">Mini foro (MongoDB)</a>
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <a href="/docs/manual_usuario.pdf" class="btn btn-outline-secondary btn-sm" target="_blank">Manual de usuario</a>
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <a href="/docs/manual_tecnico.pdf" class="btn btn-outline-danger btn-sm" target="_blank">Manual Técnico</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- etiqueta fin del div.container-->
+
+<!-- contenedor modal para el manual de usuario -->
+<div></div>
+<!-- contenedor modal para el manual tecnico MySQL -->
+<div></div>
+<!-- contenedor modal para el manual tecnico MongoDB -->
+<div></div>
+
+
+<!-- cargamos los scripts de bootstrap y de jquery-->
+<script src="assets/framework/jquery/jquery-3.5.1.min.js"></script>
+<script src="assets/framework/bootstrap45/js/bootstrap.min.js"></script>
+<script src="assets/framework/bootstrap45/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Resultados</h5>
+        <div class="row">
+            <div class="form-group col-lg-12 text-right">
+                <button type="button" class="btn btn-outline-primary btn-sm" id="agregar_contacto">
+                    Nuevo
+                </button>
+            </div>
+        </div>
+
+        <table class="table table-striped table-sm">
+            <thead class="thead-light">
+                <tr>
+                    <th>#</th>
+                    <th>Nombre completo</th>
+                    <th>Genero</th>
+                    <th>Cumpleaños</th>
+                    <th>Número(s)</th>
+                    <th>Contacto</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="tbody_resultado_contactos">
+                {% for c in contactos %}
+                    <tr>
+                        <td>{{c.id}}</td>
+                        <td>{{c.nombre}} {{c.paterno}} {{c.materno}}</td>
+                        <td>{{c.genero}}</td>
+                        <td>
+                            <input type="hidden" class="input_nacimiento" value="{{c.nacimiento.toLocaleDateString()}}">
+                            <span class="fecha_cumpleanios"></span>
+                        </td>
+                        <td><strong>{{c.tipo_telefono}}:</strong> {{c.numero_telefono}}</td>
+                        <td>
+                            <strong>Correo:</strong> {{c.correo}}<br>
+                            <strong>Facebook:</strong> {{c.facebook}}
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-outline-warning btn-sm modificar_contacto" data-id_contacto="{{c.id}}">Modificar</button><br>
+                            <button type="button" class="btn btn-outline-danger btn-sm eliminar_contacto" data-id_contacto="{{c.id}}">Eliminar</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

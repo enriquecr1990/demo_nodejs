@@ -1,0 +1,12 @@
+<!-- seccion donde se iran mostrando los mensajes del sistema -->
+<div class="contenedor_mensajes" style="display: none;">
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <div class="alert alert-danger">
+                {% for msj in mensajes %}
+                    <li class="list_no_style">{{msj}}</li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="card mb-2">
+    <div class="card-body">
+        <h5 class="card-title">Búsqueda</h5>
+        <form id="form_busqueda_contacto" >
+            <div class="row">
+                <div class="form-group col-lg-6">
+                    <label class="col-form-label" for="buscar_nombre">Nombre del contacto</label>
+                    <input class="form-control input_buscar" type="text" placeholder="Nombre" name="buscar_nombre" id="buscar_nombre" value="">
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-form-label" for="buscarRdoTodos">Genero</label>
+                    <div class="row">
+                        <div class="custom-control custom-radio">
+                            <input id="buscarRdoMasculino" class="custom-control-input input_buscar" type="radio" name="buscar_id_genero" value="1">
+                            <label class="custom-control-label" for="buscarRdoMasculino">Masculino</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="buscarRdoFemenino" class="custom-control-input input_buscar" type="radio" name="buscar_id_genero" value="2">
+                            <label class="custom-control-label" for="buscarRdoFemenino">Femenino</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="buscarRdoTodos" class="custom-control-input input_buscar" type="radio" name="buscar_id_genero" value="" checked>
+                            <label class="custom-control-label" for="buscarRdoTodos">Todos</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label class="col-form-label" for="buscar_numeroTelefono">Número de telefono:</label>
+                    <input class="form-control input_buscar" type="text" placeholder="Número de telefono" name="buscar_numeroTelefono" maxlength="18" value="" id="buscar_numeroTelefono" required>
+                </div>
+                <div class="form-group col-lg-6 busqueda_avanzada" style="display: none">
+                    <label class="col-form-label" for="buscar_nacimiento">Fecha de nacimiento:</label>
+                    <input class="form-control input_buscar" type="date" name="buscar_nacimiento" id="buscar_nacimiento" value="" required>
+                </div>
+                <div class="form-group col-lg-6 busqueda_avanzada" style="display: none">
+                    <label class="col-form-label" for="buscar_nacimiento">Tipo de teléfono:</label>
+                    <!-- las opciones se llenan por medio del JS cuando se carga el JS -->
+                    <select name="buscar_idTipoTelefono" class="custom-select cat_tipo_telefono input_buscar" data-destino="#buscar_sltTipoTelefono" id="buscar_sltTipoTelefono" required>
+                        <option value="">-- Seleccione --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-lg-12 text-right">
+                    <div class="custom-control custom-switch mb-1">
+                        <input type="checkbox" class="custom-control-input" id="busqueda_avanzada">
+                        <label id="lbl_avanzada" class="custom-control-label" for="busqueda_avanzada">Búsqueda Avanzada</label>
+                    </div>
+                    <!-- <button class="btn btn-outline-secondary btn-sm" type="reset">Limpiar Formulario</button> -->
+                    <button id="btn_buscar_contacto" class="btn btn-outline-success btn-sm" style="display: none" type="button">Buscar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="contenedor_tablero_resultados"></div>
+<div id="contenedor_modal_form_contacto"></div>
