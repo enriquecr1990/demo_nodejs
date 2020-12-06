@@ -24,11 +24,12 @@ var Vistas = {
         return html_spinner;
     },
 
-    select_tipo_telefono : function(destino){
+    select_tipo_telefono : function(){
         Catalogo.tipo_telefono(function(response){
             if(response.status){
                 var html_slt = Vistas.obtener_html_cat_tipo_telefono(response.data);
-                $(destino).append(html_slt);
+                $('#buscar_sltTipoTelefono').append(html_slt);
+                $('#id_tipo_telefono').append(html_slt);
             }else{
                 Vistas.procesar_mensaje(response.msg,'danger');
             }

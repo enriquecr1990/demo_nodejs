@@ -60,39 +60,14 @@ var Contacto = {
     },
 
     formulario_contacto_nuevo : function(){
-        if($('#contenedor_modal_form_contacto').html() == ''){
-            Master.obtener_contenido_peticion_html(
-                Backend.url + 'contacto/form_contacto',{},
-                function(response_html){
-                    $('#contenedor_modal_form_contacto').html(response_html);
-                    $('#id_contacto').val('');
-                    Vistas.procesar_tooltips();
-                    Vistas.select_tipo_telefono('#id_tipo_telefono'); //cargamos el catalogo para el form de registro contacto
-                    Contacto.procesar_modal_contacto();
-                },'post'
-            );
-        }else{
-            $('#reset_form_contacto').trigger('click');
-            $('#id_contacto').val('');
-            Contacto.procesar_modal_contacto();
-        }
+        $('#id_contacto').val('');
+        Vistas.procesar_tooltips();
+        Contacto.procesar_modal_contacto();
     },
 
     formulario_contacto_modificar : function(id_contacto){
-        if($('#contenedor_modal_form_contacto').html() == ''){
-            Master.obtener_contenido_peticion_html(
-                Backend.url + 'contacto/form_contacto',{},
-                function(response_html){
-                    $('#contenedor_modal_form_contacto').html(response_html);
-                    Contacto.procesar_modal_contacto();
-                    Vistas.select_tipo_telefono('#id_tipo_telefono'); //cargamos el catalogo para el form de registro contacto
-                    Contacto.obtener_data_contacto(id_contacto);
-                },'post'
-            );
-        }else{
-            Contacto.procesar_modal_contacto();
-            Contacto.obtener_data_contacto(id_contacto);
-        }
+        Contacto.procesar_modal_contacto();
+        Contacto.obtener_data_contacto(id_contacto);
     },
 
     obtener_data_contacto : function(id_contacto){

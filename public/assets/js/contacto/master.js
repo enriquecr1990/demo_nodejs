@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    Vistas.select_tipo_telefono('#buscar_sltTipoTelefono'); //cargamos el catalogo del form de busqueda
+    Vistas.select_tipo_telefono(); //cargamos el catalogo del form de busqueda y el de contacto
 
 });
 

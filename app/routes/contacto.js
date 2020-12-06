@@ -9,7 +9,6 @@ var Contacto_controller = require('../controller/contacto_controller');
 //inicamos las rutas para la app que usaremos con MySQL
 router.get('/',Contacto_controller.busqueda);//ruta de home de contacto
 router.post('/tablero',Contacto_controller.tablero);//ruta para obtener la tabla html de los contactos
-router.post('/form_contacto',Contacto_controller.modificar_agregar);//ruta para mostrar el formulario de contacto
 router.post('/data_contacto/:id_contacto', Contacto_controller.data_contacto);//ruta para obtener los datos de contacto conforme a la BD
 router.post('/guardar',Contacto_controller.guardar);//ruta que usariamos para guardar contacto
 router.post('/eliminar/:id_contacto',Contacto_controller.eliminar); //ruta para eliminar un contacto
