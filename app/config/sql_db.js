@@ -10,7 +10,7 @@ switch (server.hostname()){
             user : 'root',
             port : '3306',
             password : '',
-            database : 'sitio_php'
+            database : 'sitio_contacto'
         };
         break;
     //server azure por el despliegue de la free web app alojada en 'https://enrique-nodejs.azurewebsites.net/'
@@ -20,7 +20,7 @@ switch (server.hostname()){
             user : 'azure',
             port : '52758',
             password : '6#vWHD_$',
-            database : 'sitio_php'
+            database : 'sitio_contacto'
         };
         break;
     //cargamos la configuracion por default

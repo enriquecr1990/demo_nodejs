@@ -41,25 +41,7 @@ app.use('/contacto',contacto_ruta);
 var foro_rutas = require('./app/routes/foro');
 app.use('/foro',foro_rutas);
 
-app.get('/mongo_test',function(req,res){
-    var MongoClient = require('mongodb').MongoClient;
-    var url = "mongodb+srv://ecoronar:ecrunirmx2020@cluster0.l6yaw.mongodb.net/";
-    MongoClient.connect(url,function(err,db){
-        if(err) throw err;
-        console.log('***** nos conectamos a mongo chido :-D');
-        var basemongo = db.db('foro');
-        basemongo.collection('mensajes').find().toArray(function(err,result){
-            if(err){throw err;}
-            console.log(result);
-            res.send(result);
-        });
-        db.close();
-    })
-});
-
-//se agrega el listen para arrancar el servidor en el puerto 8080
+//se agrega el listen para arrancar el servidor en el puerto de la constante
 app.listen(PORT,function(){
-    var constantes = require('./app/config/constantes');
-    console.log('***** dirname = '+constantes.DIR_APP);
     console.log('***** Se inicio el servidor correctamente PORT: ' + PORT);
 });
