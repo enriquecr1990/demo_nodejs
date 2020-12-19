@@ -90,12 +90,27 @@ var Vistas = {
     },
 
     getFechaCumpleanios : function(strFecha){
-        //se dividen en array los elementos de la fecha que se recibe en formato yyyy-mm-dd por el separador - (guion medio)
-        var aFecha = strFecha.split('/')
-        var anio = aFecha[2];
-        var mes = aFecha[1];
-        var dia = parseInt(aFecha[0]) + 1;
-        var fecha = new Date(anio + '-' + mes + '-' + dia);
+        var hostname = location.hostname;
+        switch (hostname) {
+            case 'enriquecr-nodejs.azurewebsites.net':
+                //se dividen en array los elementos de la fecha que se recibe en formato yyyy-mm-dd por el separador - (guion medio)
+                //en el servidor de azure el formato devuelto por la app de node es mm-dd-yyyy
+                var aFecha = strFecha.split('/')
+                var anio = aFecha[2];
+                var mes = aFecha[0];
+                var dia = parseInt(aFecha[1]) + 1;
+                var fecha = new Date(anio + '-' + mes + '-' + dia);
+                break;
+            default:
+                //se dividen en array los elementos de la fecha que se recibe en formato yyyy-mm-dd por el separador - (guion medio)
+                var aFecha = strFecha.split('/')
+                var anio = aFecha[2];
+                var mes = aFecha[1];
+                var dia = parseInt(aFecha[0]) + 1;
+                var fecha = new Date(anio + '-' + mes + '-' + dia);
+                break;
+        }
+        
         //se crea la fecha restando un numero al mes dado que el date de JS los meses son del 0 al 11
         return fecha.getDate() + ' de ' + this.getMes(fecha.getMonth());
     },
