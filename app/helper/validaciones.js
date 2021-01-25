@@ -10,8 +10,6 @@ var Valida = {
         if(!this.valida_campo(form.materno,'apellido materno')){ form_valido = false}
         if(!this.valida_campo(form.id_genero,'genero')){ form_valido = false}
         if(!this.valida_campo(form.id_tipo_telefono,'tipo de telefóno')){ form_valido = false}
-        //if(!this.valida_campo(form.email,'correo electrónico')){ form_valido = false}
-        //if(!this.valida_campo(form.facebook,'link de face')){ form_valido = false}
         if(!this.valida_campo(form.nacimiento,'fecha de nacimiento')
             || !this.validar_fecha(form.nacimiento)){
             form_valido = false
@@ -20,6 +18,8 @@ var Valida = {
             || !this.validar_telefono(form.numero)){
             form_valido = false
         }
+        //if(!this.valida_campo(form.email,'correo electrónico')){ form_valido = false}
+        //if(!this.valida_campo(form.facebook,'link de face')){ form_valido = false}
         console.log(this.msg_validacion);
         return form_valido;
     },
@@ -33,8 +33,16 @@ var Valida = {
         return form_valido;
     },
 
+    form_login : function(form){
+        var form_valido = true;
+        if(!this.valida_campo(form.usr,'usuario') ){form_valido =  false;}
+        if(!this.valida_campo(form.pass,'contraseña') ){form_valido =  false;}
+        return form_valido;
+    },
+
     valida_campo : function(campo,tag){
         var es_valido = true;
+        console.log(campo,tag);
         if(campo == undefined || campo == null || campo == '' || campo.trim() == ''){
             es_valido = false;
             this.msg_validacion.push('El campo '+tag+' es requerido o no es valido');

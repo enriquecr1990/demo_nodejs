@@ -28,6 +28,14 @@ ON DELETE NO ACTION
 ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+CREATE TABLE IF NOT EXISTS `sitio_contacto`.`usuario`(
+    `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `usuario` VARCHAR(100) NOT NULL,
+    `password` VARCHAR(500) NOT NULL,
+    PRIMARY KEY (`id`)
+)
+ENGINE = InnoDB;
+
 
 START TRANSACTION;
 USE `sitio_contacto`;

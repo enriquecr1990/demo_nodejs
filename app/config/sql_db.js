@@ -33,13 +33,20 @@ switch (server.hostname()){
         break;
     //cargamos la configuracion por default
     default:
-        config = {
+        /*config = {
             host : '127.0.0.1',
             user : 'root',
             port : '3306',
             password : '',
             database : 'sitio_php'
-        };
+        };*/
+        config = {
+            host : '151.106.97.204',
+            user : 'u471544287_unirnodejs',
+            port : '3306',
+            password : 'Pa$$word1234',
+            database : 'u471544287_unir_node_js'
+        }
         break;
 }
 //creamos la conexion de la bd conforme al config llenado previamente en el switch

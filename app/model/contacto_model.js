@@ -42,7 +42,7 @@ var Contacto_model = {
      * 2. id_contacto: es el identificador de la BD para procesarlo en la query
      */
     guardar : function(call_controller,data_contacto,id){
-        if(id != '' && id != 0){
+        if(id != '' && id != 0 && id != undefined){
             console.log('***** Contacto_model -> guardar actualizar');
             var query = "UPDATE contacto SET ? WHERE id="+id;
             console.log('***** consulta: ' + query);

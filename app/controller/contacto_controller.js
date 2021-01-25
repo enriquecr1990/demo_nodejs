@@ -6,6 +6,7 @@ var Constantes = require('../config/constantes');
 var Contacto_model = require('../model/contacto_model');
 //cargamos el helper de validacion de datos
 var Validacion = require('../helper/validaciones');
+var Convertidor = require('../helper/convertidor');
 
 var Contacto_controller = {
 
@@ -127,7 +128,7 @@ var Contacto_controller = {
             Validacion.msg_validacion = [];
             if(Validacion.form_contacto(req.body)){
                 //creamos contacto para transformalo y enviarlo al modelo para su persistencia
-                var contacto = {
+                /*var contacto = {
                     nombre : req.body.nombre,
                     paterno : req.body.paterno,
                     materno : req.body.materno,
@@ -137,7 +138,10 @@ var Contacto_controller = {
                     numero_telefono : req.body.numero,
                     correo : req.body.email,
                     facebook : req.body.facebook,
-                };
+                };*/
+                //cargamos la entidad formateada que necesita el modelo
+                var contacto = Convertidor.obtenerEntidadContacto(req.body);
+                console.log(contacto);
                 Contacto_model.guardar(function(error,result){
                     if(error){
                         console.log('***** error al tratar de guardar el contacto');
